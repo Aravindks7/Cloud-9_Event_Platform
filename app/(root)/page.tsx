@@ -1,4 +1,6 @@
 
+import Collection from '@/components/shared/Collection'
+
 import { Button } from '@/components/ui/button'
 import { getAllEvents } from '@/lib/actions/event.actions';
 import { SearchParamProps } from '@/types';
@@ -32,7 +34,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           </div>
 
           <Image 
-            src="/assets/images/hero.jpg"
+            src="/assets/images/hero.png"
             alt="hero"
             width={1000}
             height={1000}
@@ -48,6 +50,15 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
         </div>
 
+        <Collection 
+          data={events?.data}
+          emptyTitle="No Events Found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Events"
+          limit={6}
+          page={page}
+          totalPages={events?.totalPages}
+        />
       </section>
     </>
   )
